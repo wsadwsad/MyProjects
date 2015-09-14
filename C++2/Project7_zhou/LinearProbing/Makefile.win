@@ -1,0 +1,31 @@
+# Project: Project7_lp
+# Makefile created by Dev-C++ 5.7.0
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = drv_hwlp.o hash_lp.o
+LINKOBJ  = drv_hwlp.o hash_lp.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++"
+BIN      = Project7_lp.exe
+CXXFLAGS = $(CXXINCS) -Wall -g3
+CFLAGS   = $(INCS) -Wall -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+drv_hwlp.o: drv_hwlp.cpp
+	$(CPP) -c drv_hwlp.cpp -o drv_hwlp.o $(CXXFLAGS)
+
+hash_lp.o: hash_lp.cpp
+	$(CPP) -c hash_lp.cpp -o hash_lp.o $(CXXFLAGS)
